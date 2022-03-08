@@ -2,8 +2,9 @@
 <gresources>
   <gresource prefix="/dev/luminus/Installer">
     <file>dev.luminus.Installer.css</file>
+    <file>images/logo.png</file>
     <file alias="gtk/help-overlay.ui" preprocess="xml-stripblanks">ui/gtk/help-overlay.ui</file>
     <file preprocess="xml-stripblanks">ui/window.ui</file>
-    <file>images/logo.png</file>
+    <file preprocess="xml-stripblanks">ui/header.ui</file>
   </gresource>
 </gresources>

@@ -15,6 +15,8 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import os
+
 from gi.repository import Gtk
 
 
@@ -29,6 +31,12 @@ class InstallerWindow(Gtk.ApplicationWindow):
         super().__init__(**kwargs)
 
         self.logo.set_resource("/dev/luminus/Installer/images/logo.png")
+
+        self.header_ui = Gtk.Builder()
+        self.header_ui.add_from_resource('/dev/luminus/Installer/ui/header.ui')
+        self.header = self.header_ui.get_object("header")
+
+        self.set_titlebar(self.header)
         """row = Gtk.ListBoxRow()
         row2 = Gtk.ListBoxRow()
         hbox = Gtk.Box()
