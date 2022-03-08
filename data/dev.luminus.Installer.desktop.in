@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=installer
+Exec=installer
+Icon=dev.luminus.Installer
+Terminal=false
+Type=Application
+Categories=GTK;
+StartupNotify=true
