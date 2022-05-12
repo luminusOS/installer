@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <template class="LocationWindow" parent="GtkBox">
+    <property name="halign">center</property>
+    <child>
+    <object class="GtkBox">
+      <property name="orientation">vertical</property>
+      <property name="visible">True</property>
+      <child>
+        <object class="GtkBox">
+          <property name="orientation">vertical</property>
+          <property name="visible">True</property>
+          <property name="margin-top">100</property>
+          <property name="spacing">10</property>
+          <property name="halign">center</property>
+          <!--<child>
+            <object class="GtkImage" id="logo">
+              <property name="visible">True</property>
+              <property name="can-focus">False</property>
+              <property name="pixel-size">220</property>
+              <property name="resource">/dev/luminus/Installer/images/logo.png</property>
+            </object>
+          </child>
+          <child>
+            <object class="GtkLabel">
+              <property name="margin-top">40</property>
+              <property name="label" translatable="yes">ABIGAIU</property>
+            </object>
+          </child>
+          <child>
+            <object class="GtkComboBoxText">
+              <items>
+                <item translatable="yes">English (United States of America)</item>
+                <item translatable="yes">Portuguese (Brazil)</item>
+              </items>
+              <property name="active">0</property>
+            </object>
+          </child>-->
+        </object>
+      </child>
+    </object>
+    </child>
+  </template>
+</interface>

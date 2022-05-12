@@ -20,46 +20,58 @@ import gi
 import os
 
 gi.require_version('Gtk', '4.0')
+gi.require_version('Adw', '1')
 
-from gi.repository import Gtk, Gio, Gdk
+from gi.repository import Gtk, Gio, Gdk, Adw
 
-from .window import InstallerWindow, AboutDialog
+from .welcome import WelcomeWindow
+from .header import MainHeader
+from .location import LocationWindow
 
+@Gtk.Template(resource_path='/dev/luminus/Misticetos/ui/main.ui')
+class MainWindow(Gtk.ApplicationWindow):
+    __gtype_name__ = 'MisticetosWindow'
 
-class Application(Gtk.Application):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.header = MainHeader(application=self)
+        self.welcome = WelcomeWindow(application=self)
+        self.location = LocationWindow(application=self)
+        self.set_titlebar(self.header)
+        self.set_child(self.welcome)
+
+class Application(Adw.Application):
     def __init__(self):
-        super().__init__(application_id='dev.luminus.Installer',
+        super().__init__(application_id='dev.luminus.Misticetos',
                          flags=Gio.ApplicationFlags.FLAGS_NONE)
         #self.init_style()
 
     def do_activate(self):
         win = self.props.active_window
         if not win:
-            win = InstallerWindow(application=self)
-        self.create_action('about', self.on_about_action)
-        self.create_action('preferences', self.on_preferences_action)
+            win = MainWindow(application=self)
         win.present()
 
     def init_style(self):
         css_provider = Gtk.CssProvider()
-        css_file = '/dev/luminus/Installer/dev.luminus.Installer.css'
-        if not os.path.exists(css_file):
-            mypath = os.path.dirname(os.path.abspath(__file__))
-            print(os.path.dirname(os.path.abspath(__file__)))
-            onlyfiles = [f for f in os.listdir(mypath) if os.path.isfile(os.path.join(mypath, f))]
-            print(onlyfiles)
-            sys.exit(css_file + ' CSS file missing!')
-        css_provider.load_from_resource('/dev/luminus/Installer/dev.luminus.Installer.css')
+        css_file = '/dev/luminus/Misticetos/dev.luminus.Misticetos.css'
+        #if not os.path.exists(css_file):
+        #    mypath = os.path.dirname(os.path.abspath(__file__))
+        #    print(os.path.dirname(os.path.abspath(__file__)))
+        #    onlyfiles = [f for f in os.listdir(mypath) if os.path.isfile(os.path.join(mypath, f))]
+        #    print(onlyfiles)
+        #    sys.exit(css_file + ' CSS file missing!')
+        css_provider.load_from_resource('/dev/luminus/Misticetos/dev.luminus.Misticetos.css')
         get_display = Gdk.Display.get_default()
         style_context = Gtk.StyleContext()
         style_context.add_provider_for_display(get_display, css_provider, Gtk.STYLE_PROVIDER_PRIORITY_USER)
 
-    def on_about_action(self, widget, _):
-        about = AboutDialog(self.props.active_window)
-        about.present()
+    #def on_about_action(self, widget, _):
+    #    about = AboutDialog(self.props.active_window)
+    #    about.present()
 
-    def on_preferences_action(self, widget, _):
-        print('app.preferences action activated')
+    #def on_preferences_action(self, widget, _):
+    #    print('app.preferences action activated')
 
     def create_action(self, name, callback):
         """ Add an Action and connect to a callback """

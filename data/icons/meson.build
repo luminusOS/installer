@@ -1,4 +1,4 @@
-application_id = 'dev.luminus.Installer'
+application_id = 'dev.luminus.Misticetos'
 
 scalable_dir = join_paths('hicolor', 'scalable', 'apps')
 install_data(

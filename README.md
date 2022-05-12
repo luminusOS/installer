@@ -1,2 +1,2 @@
-# installer
+# Misticetos
 Luminos OS Installer

@@ -1,7 +1,7 @@
 [Desktop Entry]
-Name=installer
-Exec=installer
-Icon=dev.luminus.Installer
+Name=Mistiscetos Installer
+Exec=mistiscetos
+Icon=dev.luminus.Mistiscetos
 Terminal=false
 Type=Application
 Categories=GTK;

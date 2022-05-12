@@ -1,6 +1,6 @@
-data/dev.luminus.Installer.desktop.in
-data/dev.luminus.Installer.appdata.xml.in
-data/dev.luminus.Installer.gschema.xml
+data/dev.luminus.Misticetos.desktop.in
+data/dev.luminus.Misticetos.appdata.xml.in
+data/dev.luminus.Misticetos.gschema.xml
 src/window.ui
 src/main.py
 src/window.py

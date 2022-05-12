@@ -1,82 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <object class="GtkHeaderBar" id="header">
+  <requires lib="gtk" version="4.0"/>
+  <template class="MainHeader" parent="GtkHeaderBar">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
-    <child>
-      <object class="GtkBox" id="nav_box">
+    <child type="start">
+      <object class="GtkBox" id="_nav_header_box">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <property name="halign">fill</property>
+        <property name="spacing">2</property>
         <property name="valign">center</property>
         <property name="hexpand">False</property>
         <child>
-          <object class="GtkBox" id="button_box">
-              <property name="visible">True</property>
-              <property name="can_focus">False</property>
-              <!--<property name="layout_style">start</property>-->
-              <child>
-                <object class="GtkButton" id="backwards_button">
-                    <!--<property name="use_action_appearance">False</property>-->
-                    <property name="visible">True</property>
-                    <property name="sensitive">True</property>
-                    <property name="can_focus">True</property>
-                    <!--<property name="no_show_all">True</property>-->
-                    <style>
-                        <class name="image-button"/>
-                    </style>
-                    <!--<signal name="clicked" handler="on_backwards_button_clicked" swapped="no"/>-->
-                    <child>
-                        <object class="GtkImage" id="back_icon">
-                            <property name="icon-name">go-previous-symbolic</property>
-                            <property name="visible">True</property>
-                            <property name="can_focus">False</property>
-                            <property name="icon-size">1</property>
-                        </object>
-                    </child>
-                </object>
-                <!--<packing>
-                    <property name="pack_type">start</property>
-                    <property name="position">0</property>
-                    <property name="non_homogeneous">True</property>
-                </packing>-->
-              </child>
-              <child>
-                <object class="GtkButton" id="forward_button">
-                    <!--<property name="use_action_appearance">False</property>-->
-                    <property name="visible">True</property>
-                    <property name="sensitive">True</property>
-                    <property name="can_focus">True</property>
-                    <!--<property name="no_show_all">True</property>-->
-                    <style>
-                        <class name="image-button"/>
-                    </style>
-                    <!--<signal name="clicked" handler="on_forward_button_clicked" swapped="no"/>-->
-                    <child>
-                        <object class="GtkImage" id="forward_icon">
-                            <property name="icon-name">go-next-symbolic</property>
-                            <property name="visible">True</property>
-                            <property name="can_focus">False</property>
-                            <property name="icon-size">1</property>
-                        </object>
-                    </child>
-                </object>
-                <!--<packing>
-                    <property name="pack_type">start</property>
-                    <property name="position">1</property>
-                    <property name="non_homogeneous">True</property>
-                </packing>-->
-              </child>
+          <object class="GtkButton" id="_backward_button">
+          	<property name="visible">True</property>
+            <property name="sensitive">False</property>
+            <property name="can_focus">True</property>
+            <property name="icon-name">go-previous-symbolic</property>
+            <signal name="clicked" handler="backward_button_clicked" swapped="no" />
           </object>
-          <!--<packing>
-            <property name="pack_type">end</property>
-            <property name="position">1</property>
-          </packing>-->
+        </child>
+        <child>
+          <object class="GtkComboBoxText" id="_window_select">
+            <items>
+              <item translatable="yes" id="_welcome_window">Welcome</item>
+              <item translatable="yes" id="_location_window">Location</item>
+              <item translatable="yes" id="_keyboard_window">Keyboard</item>
+              <item translatable="yes" id="_partitions_window">Partitions</item>
+              <item translatable="yes" id="_users_window">Users</item>
+              <item translatable="yes" id="_summary_window">Summary</item>
+              <item translatable="yes" id="_install_window">Install</item>
+            </items>
+            <property name="active">0</property>
+            <signal name="changed" handler="on_window_select_changed" swapped="no" />
+          </object>
+        </child>
+        <child>
+          <object class="GtkButton" id="_forward_button">
+            <property name="visible">True</property>
+            <property name="sensitive">True</property>
+            <property name="can_focus">True</property>
+            <property name="icon-name">go-next-symbolic</property>
+            <signal name="clicked" handler="forward_button_clicked" swapped="no" />
+          </object>
         </child>
       </object>
-      <!--<packing>
-        <property name="pack_type">end</property>
-      </packing>-->
     </child>
-  </object>
+    <child type="end">
+      <object class="GtkBox">
+        <property name="orientation">horizontal</property>
+        <property name="visible">True</property>
+        <property name="halign">end</property>
+        <child>
+          <object class="GtkButton" id="_install_button">
+            <property name="label">Install</property>
+            <property name="sensitive">False</property>
+            <style>
+              <class name="suggested-action"/>
+            </style>
+          </object>
+        </child>
+      </object>
+    </child>
+  </template>
 </interface>

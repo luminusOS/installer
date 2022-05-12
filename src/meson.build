@@ -7,17 +7,19 @@ conf.set('localedir', join_paths(get_option('prefix'), get_option('localedir')))
 conf.set('pkgdatadir', pkgdatadir)
 
 configure_file(
-  input: 'installer.in',
-  output: 'installer',
+  input: 'misticetos.in',
+  output: 'misticetos',
   configuration: conf,
   install: true,
   install_dir: get_option('bindir')
 )
 
-installer_sources = [
+misticetos_sources = [
   '__init__.py',
   'main.py',
-  'window.py',
+  'welcome.py',
+  'header.py',
+  'location.py',
 ]
 
-install_data(installer_sources, install_dir: moduledir)
+install_data(misticetos_sources, install_dir: moduledir)

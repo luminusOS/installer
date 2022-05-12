@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/dev/luminus/Misticetos">
+    <file>dev.luminus.Misticetos.css</file>
+    <file>images/logo.png</file>
+    <file preprocess="xml-stripblanks">ui/welcome.ui</file>
+    <file preprocess="xml-stripblanks">ui/header.ui</file>
+    <file preprocess="xml-stripblanks">ui/main.ui</file>
+    <file preprocess="xml-stripblanks">ui/location.ui</file>
+  </gresource>
+</gresources>

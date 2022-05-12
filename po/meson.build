@@ -1,1 +1,1 @@
-i18n.gettext('installer', preset: 'glib')
+i18n.gettext('misticetos', preset: 'glib')

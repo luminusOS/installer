@@ -1,13 +1,13 @@
-gnome.compile_resources('installer',
-  'dev.luminus.Installer.gresource.xml',
+gnome.compile_resources('misticetos',
+  'dev.luminus.Misticetos.gresource.xml',
   gresource_bundle: true,
   install: true,
   install_dir: pkgdatadir,
 )
 
 desktop_file = i18n.merge_file(
-  input: 'dev.luminus.Installer.desktop.in',
-  output: 'dev.luminus.Installer.desktop',
+  input: 'dev.luminus.Misticetos.desktop.in',
+  output: 'dev.luminus.Misticetos.desktop',
   type: 'desktop',
   po_dir: '../po',
   install: true,
@@ -22,8 +22,8 @@ if desktop_utils.found()
 endif
 
 appstream_file = i18n.merge_file(
-  input: 'dev.luminus.Installer.appdata.xml.in',
-  output: 'dev.luminus.Installer.appdata.xml',
+  input: 'dev.luminus.Misticetos.appdata.xml.in',
+  output: 'dev.luminus.Misticetos.appdata.xml',
   po_dir: '../po',
   install: true,
   install_dir: join_paths(get_option('datadir'), 'appdata')
@@ -36,7 +36,7 @@ if appstream_util.found()
   )
 endif
 
-install_data('dev.luminus.Installer.gschema.xml',
+install_data('dev.luminus.Misticetos.gschema.xml',
   install_dir: join_paths(get_option('datadir'), 'glib-2.0/schemas')
 )
 
